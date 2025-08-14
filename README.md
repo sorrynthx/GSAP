@@ -1,12 +1,64 @@
-# React + Vite
+# GSAP 칵테일 랜딩 페이지
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+이 프로젝트는 칵테일 테마 웹사이트를 위한 시각적으로 매력적인 단일 페이지 랜딩 페이지입니다. React와 Vite로 구축되었으며, GSAP(GreenSock Animation Platform)를 사용하여 부드러운 애니메이션을 구현하고 Tailwind CSS로 스타일을 지정했습니다.
 
-Currently, two official plugins are available:
+## 시작하기
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+다음은 개발 및 테스트 목적으로 로컬 컴퓨터에서 프로젝트를 설정하고 실행하는 방법에 대한 안내입니다.
 
-## Expanding the ESLint configuration
+### 사전 요구 사항
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+컴퓨터에 Node.js와 npm(또는 yarn)이 설치되어 있어야 합니다.
+
+- [Node.js](https://nodejs.org/) (npm 포함)
+
+### 설치
+
+1.  저장소를 복제합니다:
+    ```sh
+    git clone <repository-url>
+    ```
+2.  프로젝트 디렉토리로 이동합니다:
+    ```sh
+    cd gsap_landing
+    ```
+3.  의존성을 설치합니다:
+    ```sh
+    npm install
+    ```
+
+## 사용 가능한 스크립트
+
+프로젝트 디렉토리에서 다음 명령을 실행할 수 있습니다:
+
+### `npm run dev`
+
+개발 모드에서 앱을 실행합니다. 브라우저에서 [http://localhost:5173](http://localhost:5173)(포트는 다를 수 있음)을 열어 확인하세요. 코드를 변경하면 페이지가 자동으로 새로고침됩니다.
+
+### `npm run build`
+
+`docs` 폴더에 프로덕션용 앱을 빌드합니다. React를 프로덕션 모드로 번들링하고 최상의 성능을 위해 빌드를 최적화합니다.
+
+### `npm run lint`
+
+ESLint를 사용하여 소스 코드의 문제를 찾아 수정합니다.
+
+### `npm run preview`
+
+`docs` 폴더의 프로덕션 빌드를 로컬 서버에서 미리 봅니다. 배포 전에 최종 빌드를 확인하는 데 유용합니다.
+
+## 프로젝트 구조
+
+-   **`src/`**: 모든 React 소스 코드가 포함된 디렉토리입니다.
+    -   **`components/`**: 페이지를 구성하는 모든 React 컴포넌트(예: `Navbar`, `Hero`, `About`)가 포함되어 있습니다.
+    -   **`App.jsx`**: 모든 다른 컴포넌트를 조합하는 메인 애플리케이션 컴포넌트입니다.
+    -   **`main.jsx`**: React 앱이 DOM에 마운트되는 애플리케이션의 진입점입니다.
+-   **`public/`**: 이미지, 폰트, 비디오와 같은 정적 자산이 포함된 디렉토리입니다. 이 파일들은 빌드 도구에 의해 처리되지 않고 출력 디렉토리로 직접 복사됩니다.
+-   **`docs/`**: 프로덕션 빌드의 출력 디렉토리입니다. `npm run build` 명령을 실행한 후 생성됩니다.
+
+## 배포
+
+이 프로젝트는 하위 디렉토리에 배포되도록 구성되었습니다.
+
+-   **빌드 출력 디렉토리**: 프로덕션 파일은 `docs` 디렉토리로 빌드됩니다. 이는 `vite.config.js`에서 구성되었으며 GitHub Pages에 배포할 때 일반적인 설정입니다.
+-   **기본 경로**: `vite.config.js`에서 `base` 경로는 `/GSAP/`로 설정되어 있습니다. 이는 프로젝트가 `https://your-username.github.io/GSAP/`와 같은 경로에서 호스팅되도록 의도되었음을 의미합니다. 다른 경로에 배포하려면 빌드하기 전에 `vite.config.js`에서 이 값을 업데이트해야 합니다.
